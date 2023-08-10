@@ -3,11 +3,13 @@
     import QuizHeader from "../components/QuizHeader.vue"
     import Result from "../components/Result.vue"
     import {useRoute} from "vue-router"
-    import { ref, watch, computed } from "vue";
-
+    import { ref, computed } from "vue";
     import quizes from "../data/quizes.json"
 
     const route = useRoute()
+
+    //boolean used to conditionally render either the questions or the results
+    const showResults = ref(false);
 
     //find the id of the quiz currently open, using the URL. Then search for the whole quizes.json file, filter it for the quiz currently open (eg: math) and feed only the math quiz data to the Question component
     const quizId = parseInt(route.params.id);
@@ -34,12 +36,28 @@
     */
     const barPercentage = computed(() => `${currentQuestionIndex.value/quiz.questions.length * 100}%`)
 
+    /*
+    Fires when <Question> child component emits the selectOption event
+    Used to:
+        - advance to next question
+        - register if answer was correct or not
+        - check if user answered the last question, and if so hide the question and display the result
+    */
     const onOptionSelected = (isCorrect) => {
+
+        //increment the number of correct answers if isCorrect
         if(isCorrect) {
             numberOfCorrectAnswers.value++;
         }
 
+        //increment currentQuestionIndex to show the next question
         currentQuestionIndex.value++;
+
+        // check if user answered the last question, and if so hide the question and display the result
+        if (currentQuestionIndex.value === quiz.questions.length) {
+            showResults.value = true;
+        }
+        
     }
 
 </script>
@@ -52,11 +70,12 @@
         /> 
         <div>
             <Question 
+                v-if="!showResults"
                 :question="quiz.questions[currentQuestionIndex]"
                 @selectOption="onOptionSelected"
             />
+            <Result v-else/>
         </div>
 
-        <Result />
 </div>
 </template>
