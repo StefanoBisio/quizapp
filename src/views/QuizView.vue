@@ -1,6 +1,7 @@
 <script setup>
     import Question from "../components/Question.vue"
     import QuizHeader from "../components/QuizHeader.vue"
+    import Result from "../components/Result.vue"
     import {useRoute} from "vue-router"
     import { ref, watch, computed } from "vue";
 
@@ -37,7 +38,7 @@
         if(isCorrect) {
             numberOfCorrectAnswers.value++;
         }
-        
+
         currentQuestionIndex.value++;
     }
 
@@ -56,6 +57,6 @@
             />
         </div>
 
-        <button @click="currentQuestionIndex++">change question status</button>
-    </div>
+        <Result />
+</div>
 </template>
