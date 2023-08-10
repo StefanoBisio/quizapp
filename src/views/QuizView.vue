@@ -12,11 +12,34 @@
     const quizId = parseInt(route.params.id);
     const quiz = quizes.find(q => q.id === quizId);
 
-    const currentQuestionIndex = ref(0);
+    /*
+    is passed down to Question component to show one question at the time
+    Also used by questionStatus() and barPercentage() to keep track of which question the user is on. 1, 2, 3, etc
+    */
+    const currentQuestionIndex = ref(0)
 
-    const questionStatus = computed(() => `${currentQuestionIndex.value}/${quiz.questions.length}`);
+    //used to keep track of how many correct answers the user is giving going through the quiz
+    const numberOfCorrectAnswers = ref( 0)
 
+    /*
+    is passed down to QuizHeader.
+    Uses currentQuestionIndex and the length of the questions array, to compose the string to inform the user of the progress. 0/3, 1/3, etc
+    */
+    const questionStatus = computed(() => `${currentQuestionIndex.value}/${quiz.questions.length}`)
+
+    /*
+    is passed down to QuizHeader.
+    Very similar use to questionStatus. This returns a percentage value used in the CSS of the progress bar
+    */
     const barPercentage = computed(() => `${currentQuestionIndex.value/quiz.questions.length * 100}%`)
+
+    const onOptionSelected = (isCorrect) => {
+        if(isCorrect) {
+            numberOfCorrectAnswers.value++;
+        }
+        
+        currentQuestionIndex.value++;
+    }
 
 </script>
 
@@ -25,12 +48,14 @@
         <QuizHeader 
             :questionStatus="questionStatus"
             :barPercentage="barPercentage"
-
         /> 
         <div>
-            <Question :question="quiz.questions[currentQuestionIndex]"/>
+            <Question 
+                :question="quiz.questions[currentQuestionIndex]"
+                @selectOption="onOptionSelected"
+            />
         </div>
-        <!-- testing only, this button will be deleted -->
+
         <button @click="currentQuestionIndex++">change question status</button>
     </div>
 </template>

@@ -7,7 +7,7 @@
 
         } = defineProps({
             questionStatus: {
-                type: Number,
+                type: String,
                 required: true
             },
             barPercentage: {
