@@ -2,6 +2,8 @@
 
 QuizApp is a web application built with Vue.js 3 and Vite. It provides a platform for users to take quizzes on various subjects. The quizzes are presented in a multiple-choice format, and the results are displayed at the end of each quiz.
 
+live link: [https://playful-shortbread-4bc6f9.netlify.app](https://playful-shortbread-4bc6f9.netlify.app/)
+
 The application demonstrates a solid beginner understanding of Vue.js concepts such as:
 
 - Vue 3 Composition API
