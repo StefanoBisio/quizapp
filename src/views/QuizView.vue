@@ -74,7 +74,11 @@
                 :question="quiz.questions[currentQuestionIndex]"
                 @selectOption="onOptionSelected"
             />
-            <Result v-else/>
+            <Result 
+                v-else
+                :quizQuestionLength="quiz.questions.length"
+                :numberOfCorrectAnswers="numberOfCorrectAnswers"
+            />
         </div>
 
 </div>
