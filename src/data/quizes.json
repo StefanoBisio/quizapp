@@ -3,6 +3,7 @@
     "id": 1,
     "img": "https://marvel-b1-cdn.bc0a.com/f00000000026007/resilienteducator.com/wp-content/uploads/2012/11/AdobeStock_60467600_cup.jpg",
     "name": "Math",
+    "color": "#C8E4B2",
     "questions": [
       {
         "id": 1,
@@ -190,6 +191,7 @@
     "id": 2,
     "img": "https://blogs.biomedcentral.com/on-biology/wp-content/uploads/sites/5/2017/12/DNA.png",
     "name": "Biology",
+    "color" : "#9ED2BE",
     "questions": [
       {
         "id": 1,
@@ -377,6 +379,7 @@
     "id": 3,
     "img": "http://jobs.newscientist.com/getasset/c40a5488-11be-43b0-843f-a2e6ef9f0612/",
     "name": "Chemistry",
+    "color" : "#7EAA92",
     "questions": [
       {
         "id": 1,
@@ -563,7 +566,8 @@
   {
     "id": 4,
     "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Physical_World_Map.svg/440px-Physical_World_Map.svg.png",
-    "name": "Geography", 
+    "name": "Geography",
+    "color" : "#FFD9B7", 
     "questions": [
       {
         "id": 1,
