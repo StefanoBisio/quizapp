@@ -7,6 +7,8 @@ import gsap from "gsap";
 const quizes = ref(q);
 const search = ref("");
 
+// The watch() function is used to observe changes in the 'search' ref.
+// When the value of 'search' changes, the function inside watch() is triggered.
 watch(search, () => {
   quizes.value = q.filter((quiz) =>
     quiz.name.toLowerCase().includes(search.value.toLowerCase())
@@ -48,6 +50,7 @@ const enter = (el) => {
           :key="quiz.id" 
           :quiz="quiz" 
           :data-index="index"
+          :color="quiz.color"
         />
       </TransitionGroup>
     </div>

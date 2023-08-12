@@ -6,6 +6,8 @@
     import { ref, computed } from "vue";
     import quizes from "../data/quizes.json"
 
+    // const {color} = defineProps(['color'])
+
     const route = useRoute()
 
     //boolean used to conditionally render either the questions or the results
@@ -67,12 +69,14 @@
         <QuizHeader 
             :questionStatus="questionStatus"
             :barPercentage="barPercentage"
+            :quizColor="quiz.color"
         /> 
         <div>
             <Question 
                 v-if="!showResults"
                 :question="quiz.questions[currentQuestionIndex]"
                 @selectOption="onOptionSelected"
+                :quizColor="quiz.color"
             />
             <Result 
                 v-else

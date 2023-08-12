@@ -3,7 +3,8 @@
         
         const {
             questionStatus,
-            barPercentage
+            barPercentage,
+            quizColor
 
         } = defineProps({
             questionStatus: {
@@ -13,6 +14,11 @@
             barPercentage: {
                 type: String,
                 required: true
+            },
+            quizColor: {
+                type: String,
+                required: false,
+                default: 'bisque'
             }
         })
 
@@ -23,7 +29,13 @@
     <header>
             <h4>Question {{questionStatus}}</h4>
             <div class="bar">
-                <div class="completion" :style="{ width: barPercentage }">
+                <div 
+                    class="completion" 
+                    :style="{ 
+                        width: barPercentage, 
+                        backgroundColor: quizColor 
+                    }"
+                >
                     <Question />
                 </div>
             </div>
@@ -46,6 +58,5 @@
 
     .completion {
         height: 100%;
-        background-color: bisque;
     }
 </style>

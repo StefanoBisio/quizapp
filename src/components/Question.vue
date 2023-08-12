@@ -3,7 +3,21 @@
 
     const emit = defineEmits(["selectOption"])
 
-    const {question} = defineProps(['question'])
+    const {
+        question,
+        quizColor
+
+    } = defineProps({
+        question: {
+            type: Object,
+            required: true
+        },
+        quizColor: {
+            type: String,
+            required: false,
+            default: 'bisque'
+        }
+    })
 
     const emitSelectedOption = (isCorrect) => {
         emit("selectOption", isCorrect)
@@ -22,7 +36,7 @@
         class="option"
         @click="emitSelectedOption(option.isCorrect)"
         >
-            <p class="option-label">{{option.label}}</p>
+            <p class="option-label" :style="{backgroundColor: quizColor}">{{option.label}}</p>
             <div class="option-value">
                 <p>{{option.text}}</p>
             </div>
@@ -47,7 +61,6 @@
     }
 
     .option-label {
-        background-color: bisque;
         width: 50px;
         height: 50px;
         font-size: 30px;

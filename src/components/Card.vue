@@ -2,7 +2,7 @@
     import { useRouter } from 'vue-router';
 
     const router = useRouter();
-    const {quiz} = defineProps(['quiz'])
+    const {quiz, color} = defineProps(['quiz', 'color'])
 
     const navigateToQuiz = () => {
         router.push(`/quiz/${quiz.id}`)
@@ -10,7 +10,7 @@
 </script>
 
 <template>
-    <div class="card" @click="navigateToQuiz">
+    <div class="card" @click="navigateToQuiz" :style="{ borderColor: color }">
         <img :src="quiz.img" alt="">
         <div class="card-text">
             <h2>{{quiz.name}}</h2>
@@ -23,8 +23,8 @@
 .card {
     width: 310px;
     overflow: hidden;
+    border: 5px solid;
     border-radius: 2%;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 35px;
     margin-right: 20px;
     cursor: pointer;
@@ -37,7 +37,7 @@
 }
 
 .card .card-text {
-    padding: 0 5px
+    padding: 0.2rem 0.5rem;
 }
 
 .card .card-text h2 {
