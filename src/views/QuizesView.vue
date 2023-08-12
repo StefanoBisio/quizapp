@@ -21,7 +21,9 @@ const enter = (el) => {
   gsap.to(el, {
     y: 0,
     opacity: 1,
-    duration: 0.4
+    duration: 0.3,
+    //The dataset read-only property of the HTMLElement interface provides read/write access to custom data attributes (data-*) on elements. https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset
+    delay: el.dataset.index * 0.3
   })
 }
 const afterEnter = (el) => {}
@@ -42,9 +44,10 @@ const afterEnter = (el) => {}
         @after-enter="afterEnter"
       >
         <Card 
-          v-for="quiz in quizes" 
+          v-for="(quiz, index) in quizes" 
           :key="quiz.id" 
           :quiz="quiz" 
+          :data-index="index"
         />
       </TransitionGroup>
     </div>
