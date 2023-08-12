@@ -1,1 +1,23 @@
 @import "./base.css";
+
+h1, h2, h3, h4, p, button {
+    color: var(--color-text);
+}
+
+input {
+    background-color: var(--color-background);
+}
+
+.btn-primary {
+    display: inline-block;
+    min-height: 50px;
+    background-color: var(--color-background);
+    border: 3px solid var(--color-border);
+    border-radius: 4px;
+    padding: 0 1rem;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--color-background-soft);
+    border-color: var(--color-border-hover);
+}

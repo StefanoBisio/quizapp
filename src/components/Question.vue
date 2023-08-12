@@ -37,9 +37,9 @@
         @click="emitSelectedOption(option.isCorrect)"
         >
             <p class="option-label" :style="{backgroundColor: quizColor}">{{option.label}}</p>
-            <div class="option-value">
+            <button class="option-value">
                 <p>{{option.text}}</p>
-            </div>
+            </button>
         </div>
     </div>
 </template>
@@ -64,15 +64,21 @@
         width: 50px;
         height: 50px;
         font-size: 30px;
+        color: var(--vt-c-black-soft);
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
     .option-value {
-        background-color: rgb(244,239,239);
+        background-color: var(--color-background-soft);
+        text-align: left;
+        border: none;
         width: 100%;
         font-size: 30px;
         padding: 0 20px
+    }
+    .option-value:hover {
+        background-color: var(--color-background-mute);
     }
 </style>

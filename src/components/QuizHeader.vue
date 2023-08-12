@@ -42,7 +42,11 @@
                 </div>
             </div>
             <div class="header-container__right">
-                <button class="btn-primary">Back to menu</button>
+                <RouterLink to="/" v-slot="{ navigate }">
+                    <button class="btn-primary" @click="navigate">
+                        Back to menu
+                    </button>
+                </RouterLink>
             </div>
         </header>
 </template>
@@ -64,7 +68,7 @@
     .bar {
         width: 300px;
         height: 50px;
-        border: 3px solid black;
+        border: 3px solid var(--color-border);
     }
 
     .completion {

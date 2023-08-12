@@ -18,7 +18,11 @@
     <div class="results">
         <p>Your result is</p>
         <h1>{{numberOfCorrectAnswers}}/{{quizQuestionLength}}</h1>
-        <RouterLink to="/">Back to menu</RouterLink>
+        <RouterLink to="/" v-slot="{ navigate }">
+            <button class="btn-primary" @click="navigate">
+                Back to menu
+            </button>
+        </RouterLink>
     </div>
 </template>
 
