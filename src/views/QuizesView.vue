@@ -80,20 +80,4 @@ header input {
   margin-top: 40px;
 }
 
-/* .card-enter-from, 
-.card-leave-to {
-  opacity: 0;
-  transform: translateY(-100px);
-}
-
-.card-enter-to, 
-.card-leave-from {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.card-enter-active, 
-.card-leave-active {
-  transition: all 0.3s ease-out;
-} */
 </style>
