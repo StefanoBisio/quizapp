@@ -26,27 +26,38 @@
 </script>
 
 <template>
-    <header>
-            <h4>Question {{questionStatus}}</h4>
-            <div class="bar">
-                <div 
-                    class="completion" 
-                    :style="{ 
-                        width: barPercentage, 
-                        backgroundColor: quizColor 
-                    }"
-                >
-                    <Question />
+    <header class="header-container">
+            <div class="header-container__left">
+                <h4>Question {{questionStatus}}</h4>
+                <div class="bar">
+                    <div 
+                        class="completion" 
+                        :style="{ 
+                            width: barPercentage, 
+                            backgroundColor: quizColor 
+                        }"
+                    >
+                        <Question />
+                    </div>
                 </div>
+            </div>
+            <div class="header-container__right">
+                <button class="btn-primary">Back to menu</button>
             </div>
         </header>
 </template>
 
 <style scoped>
-    header {
+    .header-container {
+        @media (min-width: 400px) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
         margin-top: 30px;
     }
-    header h4 {
+
+    h4 {
         font-size: 30px;
     }
 
