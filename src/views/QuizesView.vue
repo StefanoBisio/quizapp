@@ -13,6 +13,7 @@ watch(search, () => {
   );
 });
 
+// animation functions
 const beforeEnter = (el) => {
   el.style.opacity = 0;
   el.style.transform = "translateY(-60px)"
@@ -26,7 +27,6 @@ const enter = (el) => {
     delay: el.dataset.index * 0.3
   })
 }
-const afterEnter = (el) => {}
 
 </script>
 
